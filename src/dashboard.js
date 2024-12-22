@@ -52,6 +52,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
         const userList = document.getElementById('user-list');
         userList.innerHTML = '<p>Failed to load user data. Please try again later.</p>';
       });
+
+const userId = 1; // Replace with the actual logged-in user's ID
+
+fetch(`https://dummyjson.com/users/${userId}`)
+  .then(response => response.json())
+  .then(user => {
+    // Update the profile image
+    const profileImage = document.querySelector('.left-side img');
+    profileImage.src = user.image;
+    profileImage.alt = `${user.firstName} ${user.lastName}`;
+
+    // Optionally, update the welcome message
+    const welcomeMessage = document.querySelector('.left-side p');
+    welcomeMessage.textContent = `Welcome, ${user.firstName} ${user.lastName}.`;
+  })
+  .catch(error => console.error('Error fetching user data:', error));
+
     
       
 
