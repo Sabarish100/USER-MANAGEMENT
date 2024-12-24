@@ -60,8 +60,8 @@ async function handleLogin(event) {
     
       // Redirect to dashboard
       setTimeout(function() {
-        window.location.href = './src/dashboard.html'; // Redirects to dashboard after 3 Seconds
-    }, 3000);
+        window.location.href = './src/postLogin.html'; // Redirects to dashboard after 2 Seconds
+    }, 2000);
       
     } else {
       // Handle error (incorrect credentials)
